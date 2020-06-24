@@ -13,15 +13,23 @@ class Solution {
      * @return Integer
      */
     function removeDuplicates(&$nums) {
+
         $p = 0;
         $q = 1;
-        while ($q < count($nums)) { 
+
+        while ($q < count($nums)) {
+            
             if($nums[$p] != $nums[$q]){
+                // 两个指针值不相等时，将q赋值给p+1，
+                // p右移一位，q右移一位
                 $nums[$p+1] = $nums[$q];
                 $p++;
             }
+
+            // 两个指针值不相等时，q右移一位
             $q++;
         }
+
         return $p+1;
     }
 }
