@@ -14,6 +14,27 @@ class Solution {
      */
     function trap($height) {
         
+        // 左右遍历求最高值累加面积，两个面积重合的部分 = 柱子面积 + 积水面积
+        $S1 = 0;
+        $S2 = 0;
+
+        $left_max = 0;
+        $right_max = 0;
+
+        for($i = 0; $i < count($height); $i++) {
+            if($height[$i] > $left_max){
+                $left_max = $height[$i];
+            }
+
+            if($height[count($height)-$i-1] > $right_max){
+                $right_max = $height[count($height)-$i-1];
+            }
+
+            $S1 += $left_max;
+            $S2 += $right_max;
+        }
+
+        return $S1 + $S2 - $left_max*count($height) - array_sum($height)*1;
     }
 }
 // @lc code=end
