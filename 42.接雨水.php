@@ -21,20 +21,22 @@ class Solution {
         $left_max = 0;
         $right_max = 0;
 
-        for($i = 0; $i < count($height); $i++) {
+        $n = count($height);
+
+        for($i = 0; $i < $n; $i++) {
             if($height[$i] > $left_max){
                 $left_max = $height[$i];
             }
 
-            if($height[count($height)-$i-1] > $right_max){
-                $right_max = $height[count($height)-$i-1];
+            if($height[$n-$i-1] > $right_max){
+                $right_max = $height[$n-$i-1];
             }
 
             $S1 += $left_max;
             $S2 += $right_max;
         }
 
-        return $S1 + $S2 - $left_max*count($height) - array_sum($height)*1;
+        return $S1 + $S2 - $left_max*$n - array_sum($height)*1;
     }
 }
 // @lc code=end
