@@ -44,5 +44,10 @@ class Solution {
         return true;
     }
 }
+
+// Accepted
+// 34/34 cases passed (16 ms)
+// Your runtime beats 63.69 % of php submissions
+// Your memory usage beats 100 % of php submissions (14.9 MB)
 // @lc code=end
 
