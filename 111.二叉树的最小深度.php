@@ -39,5 +39,10 @@ class Solution {
         return $min_depth + 1;
     }
 }
+
+// Accepted
+// 41/41 cases passed (12 ms)
+// Your runtime beats 84.21 % of php submissions
+// Your memory usage beats 100 % of php submissions (17.2 MB)
 // @lc code=end
 
