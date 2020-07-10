@@ -34,5 +34,10 @@ class Solution {
         return $root;
     }
 }
+
+// Accepted
+// 68/68 cases passed (4 ms)
+// Your runtime beats 91.06 % of php submissions
+// Your memory usage beats 100 % of php submissions (15 MB)
 // @lc code=end
 
