@@ -41,14 +41,14 @@ class Solution {
             for ($i=0; $i < strlen($str); $i++) {
 
                 $gen = $change[$str[$i]];
+
                 for ($j=0; $j < strlen($gen); $j++) {
 
                     $new = substr($str, 0, $i).$gen[$j].substr($str, $i+1);
 
                     if(in_array($new, $bank)){
                         array_push($queue, [$new, $step + 1]);
-
-                        // 剪枝
+                        // 剪枝，避免重复
                         unset($bank[array_search($bank)]);
                     }
                 }
