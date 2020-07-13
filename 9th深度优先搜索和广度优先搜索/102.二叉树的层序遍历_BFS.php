@@ -30,11 +30,9 @@ class Solution {
         array_push($queue, $root);
 
         while ($n = count($queue)) {
-
             $tmp = [];
 
             for ($i=0; $i < $n; $i++) { 
-
                 // 先进先出
                 $cur = array_shift($queue);
                 $tmp[] = $cur->val;
@@ -45,7 +43,7 @@ class Solution {
             
             $res[] = $tmp;
         }
-
+        
         return $res;
     }
 }
