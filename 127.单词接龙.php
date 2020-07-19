@@ -15,7 +15,7 @@ class Solution {
      * @return Integer
      */
     function ladderLength($beginWord, $endWord, $wordList) {
-        
+
         if(!in_array($endWord,$wordList)) return 0;
         $wordKv = array_flip($wordList); // 交换数组中的键和值。查询和删除key比value效率高
         $s1[] = $beginWord;
@@ -47,5 +47,10 @@ class Solution {
         return 0;
     }
 }
+
+// Accepted
+// 43/43 cases passed (96 ms)
+// Your runtime beats 64.81 % of php submissions
+// Your memory usage beats 100 % of php submissions (15.7 MB)
 // @lc code=end
 
