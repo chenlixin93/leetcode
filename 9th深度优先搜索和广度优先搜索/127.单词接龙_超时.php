@@ -16,52 +16,46 @@ class Solution {
      */
     function ladderLength($beginWord, $endWord, $wordList) {
         
-        if(count($wordList) == 0 || !in_array($endWord, $wordList)) {
-            return 0;
-        }
-
         // 初始化
-        $queue = [];
-        array_push($queue, $beginWord);
+        $queue = [
+            [$beginWord, 1],
+        ];
         $visited = [$beginWord];
-        $change = 'abcdefghijklmnopqrstuvwxyz'; 
+        $gen = 'abcdefghijklmnopqrstuvwxyz'; 
 
-        $step = 1;
-        while(count($queue)) {
-            $n = count($queue);
+        while($n = count($queue)) {
+            $cur = array_shift($queue);
+            $word = $cur[0];
+            $step = $cur[1];
 
-            for ($i=0; $i < $n; $i++) { 
-                // 依次遍历当前队列中的单词
-                $word = array_shift($queue);
-                //print_r($word);
-                $len = strlen($word);
+            if($word == $endWord){
+                return $step;
+            }
 
-                // 修改每一个字符
-                for ($j=0; $j < $len; $j++) { 
-                    $origin_char = $word[$j];
+            for ($i=0; $i < strlen($word); $i++) { 
 
-                    for ($k=0; $k < 26; $k++) { 
-                        
-                        if($change[$k] == $origin_char) continue;
+                $char = $word[$i];
 
-                        $word[$j] = $change[$k];
+                for ($j=0; $j < 26; $j++) { 
 
-                        if(in_array($word, $wordList)){
-                            if($word == $endWord){
-                                return $step + 1;
-                            }
+                    // 相同跳过
+                    if($char == $gen[$j]) continue;
 
-                            if(!in_array($word, $visited)){
-                                $visited[] = $word;
-                                array_push($queue, $word);
-                            }
+                    $word[$i] = $gen[$j];
+
+                    if(in_array($word, $wordList)){
+
+                        if(!in_array($word, $visited)){
+                            
+                            array_push($queue, [$word, $step + 1]);
+                            $visited[] = $word;
                         }
                     }
-
-                    $word[$j] = $origin_char;
                 }
+
+                // 恢复
+                $word[$i] = $char;
             }
-            $step++;
         }
 
         return 0;
@@ -72,4 +66,3 @@ class Solution {
 // Time Limit Exceeded
 // 32/43 cases passed (N/A)
 // @lc code=end
-

@@ -49,7 +49,7 @@ class Solution {
                     if(in_array($new, $bank)){
                         array_push($queue, [$new, $step + 1]);
                         // 剪枝，避免重复
-                        unset($bank[array_search($bank)]);
+                        //unset($bank[array_search($bank)]);
                     }
                 }
             }
