@@ -3,6 +3,8 @@
  * @lc app=leetcode.cn id=312 lang=php
  *
  * [312] 戳气球
+ * 
+ * https://leetcode-cn.com/problems/burst-balloons/
  */
 
 // @lc code=start

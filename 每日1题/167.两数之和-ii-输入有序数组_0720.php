@@ -3,6 +3,8 @@
  * @lc app=leetcode.cn id=167 lang=php
  *
  * [167] 两数之和 II - 输入有序数组
+ * 
+ * https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/
  */
 
 // @lc code=start
