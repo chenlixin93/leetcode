@@ -34,6 +34,9 @@ class Solution {
         if($this->dp[$i][$j] > 0) return $this->dp[$i][$j];
 
         // search
+        // 优先戳破左边和右边的气球，再戳破当前气球，可以看出左右两个子问题是独立的，并且只和当前气球关联
+        // 每个子问题里，k 的范围是 i => j
+        // 定义状态转移方程：dp[i][j] = dp[i][k-1] + dp[k+1][j] + nums[k] * nums[i-1] * nums[j+1]
         for ($k=$i; $k <= $j; $k++) { 
             $left = $this->helper($nums, $i, $k - 1);
             $right = $this->helper($nums, $k + 1, $j);
