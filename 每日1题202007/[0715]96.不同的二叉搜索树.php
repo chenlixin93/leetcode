@@ -3,6 +3,8 @@
  * @lc app=leetcode.cn id=96 lang=php
  *
  * [96] 不同的二叉搜索树
+ * 
+ * https://leetcode-cn.com/problems/unique-binary-search-trees/
  */
 
 // @lc code=start

@@ -3,6 +3,8 @@
  * @lc app=leetcode.cn id=1025 lang=php
  *
  * [1025] 除数博弈
+ * 
+ * https://leetcode-cn.com/problems/divisor-game/
  */
 
 // @lc code=start
