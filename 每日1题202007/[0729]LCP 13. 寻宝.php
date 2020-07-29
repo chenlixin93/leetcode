@@ -103,14 +103,13 @@ class Solution {
         }
 
         // dp 数组，-1 代表没有遍历到 (<< 左移运算符 1 << 2 = 4)
-        $a = 1 << $nb;
         $dp = array_fill(0, 1 << $nb, array_fill(0, $nb, -1));
         for ($i=0; $i < $nb; $i++) { 
             $dp[1 << $i][$i] = $dist[$i][$nb];
         }
 
         // 由于更新的状态都比未更新的大，所以直接从小到大遍历即可
-        for ($mask=1; $mask < $a; $mask++) { 
+        for ($mask=1; $mask < (1 << $nb); $mask++) { 
             for ($i=0; $i < $nb; $i++) { 
                 // 当前 $dp 是合法的
                 if (($mask & (1 << $i)) != 0) {
