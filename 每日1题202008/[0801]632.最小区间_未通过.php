@@ -43,12 +43,12 @@ class Solution {
 
             $first = $candidate[0];
             unset($candidate[0]);
+            
             if ($first->idx + 1 < count($nums[$first->list])) {
                 $next = new Elem($first->list, $first->idx + 1, $nums[$first->list][$first->idx + 1]);
                 $candidate[] = $next;
+                $this->sortCandidate($candidate);
             }
-
-            $this->sortCandidate($candidate);
             //print_r($candidate);die();
         }
 
@@ -71,8 +71,8 @@ class Solution {
         foreach ($tmp_val as $val) {
             $candidate[] = $tmp["t".$val];
         }
-        print_r($candidate);
-    }
+        //print_r($candidate);
+    } 
 }
 
 class Elem { 
