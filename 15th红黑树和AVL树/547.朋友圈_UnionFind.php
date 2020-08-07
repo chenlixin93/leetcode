@@ -5,6 +5,7 @@
  * [547] 朋友圈
  * 
  * https://leetcode-cn.com/problems/friend-circles/
+ * 参考 https://www.cnblogs.com/grandyang/p/6686983.html
  */
 
 // @lc code=start
