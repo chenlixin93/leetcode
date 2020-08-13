@@ -24,6 +24,7 @@ class Solution {
 
         $res = "0";
 
+        // $num2 逐位与 $num1 相乘
         for ($i=$len2 - 1; $i >= 0; $i--) { 
             $carry = 0;
             $temp = "";
@@ -36,16 +37,19 @@ class Solution {
             for ($j=$len1 - 1; $j >= 0 || $carry != 0; $j--) { 
                 $n1 = $j < 0 ? 0 : $num1[$j] - '0';
                 $product = ($n1 * $n2 + $carry) % 10;
+                // 先计算的先拼接
                 $temp .= $product;
                 $carry = floor(($n1 * $n2 + $carry) / 10);
             }
 
+            // $temp 此时处于逆序状态，需要翻转得到正确的数
             $res = $this->addStrings($res, strrev($temp));
         }
 
         return $res;
     }
 
+    // $num2 逐位与 $num1 相加
     function addStrings($num1, $num2) {
 
         $len1 = strlen($num1);
@@ -55,6 +59,7 @@ class Solution {
         $carry = 0;
         $i=$len1 - 1;
         $j=$len2 - 1;
+        
         while ($i >= 0 || $j >= 0 || $carry != 0) {
 
             $x = $i < 0 ? 0 : $num1[$i] - '0';
