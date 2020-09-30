@@ -17,7 +17,7 @@ class Trie {
      * Initialize your data structure here.
      */
     function __construct() {
-        $this->root = new TrieNode();
+        $this->root = new TrieNode(); // 构建根节点
     }
 
     /**
@@ -32,9 +32,9 @@ class Trie {
             if ($p->children[$index] == null) {
                 $p->children[$index] = new TrieNode();
             }
-            $p = $p->children[$index];
+            $p = $p->children[$index]; // 移动到子节点
         }
-        $p->is_word = true;
+        $p->is_word = true; // 当前单词走完一遍，标记is_word为真
     }
 
     /**
@@ -44,7 +44,7 @@ class Trie {
      */
     function search($word) {
         $node = $this->find($word);
-        return $node != null && $node->is_word;
+        return $node != null && $node->is_word; // 查找单词比较严格，必须is_word为真
     }
 
     /**
@@ -54,14 +54,14 @@ class Trie {
      */
     function startsWith($prefix) {
         $node = $this->find($prefix);
-        return $node != null;
+        return $node != null; // 前缀存在即可
     }
 
     function find($prefix) {
         $p = $this->root;
         for ($i=0; $i < strlen($prefix); $i++) { 
             $index = (int)(ord($prefix[$i]) - ord('a'));
-            if ($p->children[$index] == null) return null;
+            if ($p->children[$index] == null) return null; // 找不到就返回 null
             $p = $p->children[$index];
         }
         return $p;
@@ -73,7 +73,7 @@ class TrieNode {
     public $children;
 
     function __construct() {
-        $this->children = array_fill(0, 26, null); // 预留 26 个节点的空间
+        $this->children = array_fill(0, 26, null); // 预留 26 个节点的空间，因为字符范围在 a-z 之间
         $this->is_word = false;
     }
 }
